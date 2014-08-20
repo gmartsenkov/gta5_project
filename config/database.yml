@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: gta5_development
+  pool: 20
+  username: georgi
+  password:
+
+test:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: gta5_test
+  pool: 20
+  username: georgi
+  password:
