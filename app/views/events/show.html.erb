@@ -40,5 +40,13 @@
   <%= @event.start_time %>
 </p>
 
+<br>
+<%= link_to "Join" , "/participate/#{@event.id}" %> <br>
+Participators: <br>
+<% if @event.participants.first %>
+<% @event.participants.each do |participant| %>
+  <%= participant.user.username %><br>
+<% end %>
+<% end %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

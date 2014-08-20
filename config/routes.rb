@@ -1,6 +1,7 @@
 Gta5::Application.routes.draw do
-  resources :categories
 
+  resources :categories
+  get '/participate/:id', to: 'events#participate'
   resources :events
 
   get "home/index"

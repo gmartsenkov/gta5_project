@@ -51,6 +51,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def participate
+    participation = Participant.new(:event_id => params[:id] , :user_id => current_user.id)
+    participation.save
+    if participation.save
+    redirect_to event_path(params[:id])
+    end
+  end
+
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
