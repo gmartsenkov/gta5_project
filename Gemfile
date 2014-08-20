@@ -44,7 +44,6 @@ gem 'rmagick', '2.13.2' , :require => 'RMagick'
 
 # Authentication , authorization model and captcha
 gem 'devise'
-gem 'omniauth-facebook'
 gem 'cancancan', '~> 1.8'
 gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'activerecord-reputation-system', github: 'NARKOZ/activerecord-reputation-system', branch: 'rails4'
