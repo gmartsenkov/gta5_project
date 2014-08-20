@@ -1,5 +1,6 @@
 Gta5::Application.routes.draw do
 
+  get "profile" , to: 'profile#index'
   resources :categories
   get '/participate/:id', to: 'events#participate'
   resources :events

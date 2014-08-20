@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+	offroad = Category.create(:name => "OffRoad")
+	stunt = Category.create(:name => "Stunts")
+	air_race = Category.create(:name => "Air Race")
+	water_race = Category.create(:name => "Water Race")
+	land_race = Category.create(:name => "Land Race")
+
+	

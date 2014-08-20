@@ -6,10 +6,10 @@
 </p>
 
 <p>
-  <strong>Event:</strong><br>
+  <strong>Events:</strong><br>
   <% @category.events.each do |event| %>
- Title: <%= event.title %> <br>
- ID: <%= link_to event.id , event_path(event) %> <br>
+ Title: <%= link_to event.title , event_path(event)  %> <br>
+ ID: <%= event.id%> <br>
  Category: <%= event.category.name %> <br> <br>
   <% end %>
 </p>

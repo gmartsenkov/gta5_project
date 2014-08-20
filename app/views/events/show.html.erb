@@ -46,7 +46,7 @@ Participators: <br>
 
 <% if @event.participants.first %>
 <% @event.participants.each do |participant| %>
-  <%= participant.user.username %><br>
+<%= (participant.id -= participant.id) + 1 %>: <%= participant.user.username %><br>
 <% end %>
 <% end %>
 
