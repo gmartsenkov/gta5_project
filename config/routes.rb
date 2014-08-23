@@ -1,8 +1,10 @@
 Gta5::Application.routes.draw do
 
-  get "profile" , to: 'profile#index'
+  resources :reports
+
+  get "profile" , to: 'profile#index' , as: 'profile'
   resources :categories
-  get '/participate/:id', to: 'events#participate'
+  get '/participate/:id', to: 'events#participate', as: 'participate'
   resources :events
 
   get "home/index"

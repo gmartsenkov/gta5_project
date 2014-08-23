@@ -32,7 +32,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @event.image %>
+  <%= image_tag @event.image %>
 </p>
 
 <p>
@@ -41,7 +41,7 @@
 </p>
 
 <br>
-<%= link_to "Join" , "/participate/#{@event.id}" if participate(@event)%> <br>
+<%= link_to "Join" , participate_path(@event.id) if participate(@event)%> <br>
 Participators: <br>
 
 <% if @event.participants.first %>
