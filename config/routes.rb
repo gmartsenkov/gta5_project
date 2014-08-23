@@ -1,7 +1,9 @@
 Gta5::Application.routes.draw do
 
-  resources :reports
+  resources :friendships
 
+  resources :reports
+  get "u/:id" , to: 'profile#profile_by_id' , as: 'profile_id'
   get "profile" , to: 'profile#index' , as: 'profile'
   resources :categories
   get '/participate/:id', to: 'events#participate', as: 'participate'
