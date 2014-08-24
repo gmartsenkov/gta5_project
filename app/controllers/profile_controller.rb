@@ -5,6 +5,7 @@ class ProfileController < ApplicationController
 
   def profile_by_id
   	@user = User.find(params[:id])
+  	
   end
 
 end

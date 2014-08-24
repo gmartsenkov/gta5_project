@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-	has_many :events
+	has_many :events , :foreign_key => 'owner'
 	has_many :participants
-
+	mount_uploader :avatar , AvatarUploader
 	has_many :friendships
 	has_many :friends, :through => :friendships
 	has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"

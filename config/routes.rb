@@ -1,16 +1,21 @@
 Gta5::Application.routes.draw do
 
   resources :friendships
-
+  resources :events
   resources :reports
+  resources :categories
+  devise_for :users
+  
+  
   get "u/:id" , to: 'profile#profile_by_id' , as: 'profile_id'
   get "profile" , to: 'profile#index' , as: 'profile'
-  resources :categories
   get '/participate/:id', to: 'events#participate', as: 'participate'
-  resources :events
-
   get "home/index"
-  devise_for :users
+
+  devise_scope :user do
+  get "/profile/settings" , to: "devise/registrations#edit"
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,6 +1,8 @@
 Username: <%= @user.username %> <br>
-ID: <%= @user.id %>
-<%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
+ID: <%= @user.id %> <br>
+<strong>Friends</strong> <br>
+<ol>
 <% @user.friendships.each do |f| %>
-<%= f.friend.username %>
+<li><%= f.friend.username %> </li>
 <% end %>
+</ol>

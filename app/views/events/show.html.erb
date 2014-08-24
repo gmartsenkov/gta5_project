@@ -2,7 +2,7 @@
 
 <p>
   <strong>Owner:</strong>
-  <%= @event.owner %>
+  <%= link_to @event.user.username , profile_id_path(@event.user.id) %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @event.category_id %>
+  <%= @event.category.name %>
 </p>
 
 <p>
