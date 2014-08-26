@@ -1,0 +1,11 @@
+<% @events.each do |event| %>
+Title: <%= event.title %> <br>
+Description: <%= event.description%> <br>
+Players: <%= event.players %> <br>
+Console: <%= event.console%> <br>
+<% event.participants.each do |participant| %>
+<%= participant.user.username %> -> 
+<%= console_helper(participant.event.console, participant.user) %>
+<% end %>
+<br>
+<% end %>

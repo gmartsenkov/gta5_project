@@ -59,6 +59,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def control_panel
+    @events = current_user.events
+  end
+
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
