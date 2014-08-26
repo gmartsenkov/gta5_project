@@ -1,7 +1,8 @@
-<%= @user.inspect %>
+<%= link_to "Settings" , profile_settings_path %> <br>
+<%= @user.inspect %><br>
 Username: <%= @user.username %> <br>
 ID: <%= @user.id %> <br>
-<strong>Friends</strong> <br>
+<strong>Friends:</strong> <br>
 <ol>
 <% @user.friendships.each do |f| %>
 <li><%= f.friend.username %> </li>
