@@ -1,0 +1,31 @@
+<ul class="nav">
+    <li id="settings">
+        <a href="#"><img src="/settings.png" /></a>
+    </li>
+    <li>
+        <li><%= link_to "Home" , home_index_path %></li>
+        <li><%= link_to "Categories" , categories_path %></li>
+        <li><%= link_to "Events" , events_path %></li>
+    </li>
+         
+    <li id="search">
+        <form action="" method="get">
+            <input type="text" name="search_text" id="search_text" placeholder="Search"/>
+            <input type="button" name="search_button" id="search_button"></a>
+        </form>
+    </li>
+    <div id="control">
+     <% if user_signed_in? %> 
+    <li id="options">
+        <a href="#">Me</a>
+        <ul class="subnav">
+         <li><%= link_to current_user.username, profile_path %></li>
+         <li><%= link_to "Dashboard", control_center_path %></li>
+         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        </ul>
+    </li>
+    <% else %>
+    <li><%= link_to('Login', new_user_session_path)  %></li>
+    <% end %>
+    </div>
+</ul>

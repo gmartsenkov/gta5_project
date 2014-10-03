@@ -5,7 +5,7 @@ development:
   database: gta5_development
   pool: 20
   username: georgi
-  password:
+  password: toor
 
 test:
   adapter: postgresql
@@ -14,4 +14,4 @@ test:
   database: gta5_test
   pool: 20
   username: georgi
-  password:
+  password: toor
