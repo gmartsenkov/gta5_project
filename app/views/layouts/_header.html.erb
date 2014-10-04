@@ -8,12 +8,7 @@
         <li><%= link_to "Events" , events_path %></li>
     </li>
          
-    <li id="search">
-        <form action="" method="get">
-            <input type="text" name="search_text" id="search_text" placeholder="Search"/>
-            <input type="button" name="search_button" id="search_button"></a>
-        </form>
-    </li>
+    
     <div id="control">
      <% if user_signed_in? %> 
     <li id="options">
@@ -28,4 +23,10 @@
     <li><%= link_to('Login', new_user_session_path)  %></li>
     <% end %>
     </div>
+    <li id="search">
+        <form action="" method="get">
+            <input type="text" name="search_text" id="search_text" placeholder="Search"/>
+            <input type="button" name="search_button" id="search_button"></a>
+        </form>
+    </li>
 </ul>

@@ -1,28 +1,11 @@
-<h1>Listing categories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <a href="<%= category_path(category.id) %>">
+    <div id="category_container", style="background-image: url(<%=category.img_path%>);>
+        <%= image_tag(category.img_path, size: "300x400") %><br>
+        <%= category.name %>
+        </div></a>
     <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <%= link_to 'New Category', new_category_path %>
 

@@ -1,0 +1,35 @@
+#category_container{
+background-color: #232323;
+text-align: center;
+float: left;
+width: 400px;
+height: 300px;
+border: 1px solid #000000;
+margin: 0 15px 15px 0;
+padding: 5px;
+background-repeat: no-repeat;
+
+-webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+
+          z-index: -1;
+    color:white;
+    font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+    font-size: 18px;
+    text-shadow: 1px 3px 0 rgba(0,0,0,0.2);
+
+    border-radius: 2px 2px 2px 2px;
+	-moz-border-radius: 2px 2px 2px 2px;
+	-webkit-border-radius: 2px 2px 2px 2px;
+	border: 1px solid #000000;
+}
+#category_container:hover{
+	  -webkit-filter: grayscale(85%);
+	  -moz-filter: grayscale(85%);
+		filter: grayscale(85%);
+	  z-index: -1;
+}
+.clearboth { clear: both; }

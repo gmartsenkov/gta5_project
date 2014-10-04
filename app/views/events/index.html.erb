@@ -1,40 +1,27 @@
 <h1>Listing events</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Owner</th>
-      <th>Console</th>
-      <th>Players</th>
-      <th>Category</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th>Start time</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @events.each do |event| %>
-      <tr>
-        <td><%= event.owner %></td>
-        <td><%= event.console %></td>
-        <td><%= event.players %></td>
-        <td><%= event.category_id %></td>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><%= event.image %></td>
-        <td><%= event.start_time %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+     <div class="event_content">
+      <div class="event_list">
+        <% event.owner %>
+        <% event.console %>
+        <% event.players %>
+        <% event.category_id %>
+        <%= event.title %>
+        <% event.description %>
+
+        <div class="event_date"><%= event.participants.count%>/<%= event.players %> <%= event.start_time %></div>
+        <%= link_to 'Show', event %>
+        <%= link_to 'Edit', edit_event_path(event) %>
+        <% link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+          <div class="additional_info">
+         
+          <div class="image_holder"> <%=image_tag event.image_url, size:"350" %> </div>
+          <h1><%= event.title %></h1>
+          </div>
+      </div><br>
     <% end %>
-  </tbody>
-</table>
 
 <br>
 
