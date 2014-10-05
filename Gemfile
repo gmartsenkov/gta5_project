@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Bootstrap
 gem "twitter-bootstrap-rails"
+gem 'country_select', github: 'stefanpenner/country_select'
+gem 'world_flags', :git => 'git://github.com/djonasson/world_flags.git'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

@@ -1,6 +1,6 @@
-<ul class="nav">
+<ul class="nav", title="Dashboard">
     <li id="settings">
-        <a href="#"><img src="/settings.png" /></a>
+        <a href="<%= control_center_path %>"><img src="/settings.png" , title="Dashboard" /></a>
     </li>
     <li>
         <li><%= link_to "Home" , home_index_path %></li>
@@ -14,8 +14,8 @@
     <li id="options">
         <a href="#">Me</a>
         <ul class="subnav">
-         <li><%= link_to current_user.username, profile_path %></li>
-         <li><%= link_to "Dashboard", control_center_path %></li>
+         <li><%= link_to current_user.username.capitalize, profile_path %></li>
+         <li><%= link_to "Settings", profile_settings_path %></li>
          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
         </ul>
     </li>

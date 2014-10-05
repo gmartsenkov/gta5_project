@@ -1,5 +1,4 @@
 <h1>Listing events</h1>
-
     <% @events.each do |event| %>
      <div class="event_content">
       <div class="event_list">
@@ -10,17 +9,30 @@
         <%= event.title %>
         <% event.description %>
 
-        <div class="event_date"><%= event.participants.count%>/<%= event.players %> <%= event.start_time %></div>
+        <div class="event_date"><%= event.participants.count%>/<%= event.players %> 
+        <%= date_in_words(event.start_time) %></div>
         <%= link_to 'Show', event %>
         <%= link_to 'Edit', edit_event_path(event) %>
-        <% link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
           <div class="additional_info">
-         
-          <div class="image_holder"> <%=image_tag event.image_url, size:"350" %> </div>
-          <h1><%= event.title %></h1>
+
+          <div class="image_holder">
+          <div class="image_event", style="background-image: url(<%=event.image_url%>);"> <image src="<%=event.image_url%>" width="300" heigth="300"></image></div> <br>
+          <div class="event_owner"> Host: <%= event.user.username %>
+          <br>
+          Nationality: <%= event.user.country %><br>
+          PS3: <%= event.user.ps3 %><br>
+          XBOX360: <%= event.user.xbox360 %>
+          </div>
+          </div>
+          <h1><%= event.title %></h1><br><br><br>
+          <div class="event_description"><%= event.description %></div><br>
+          
+       
           </div>
       </div><br>
+      <tr>
     <% end %>
 
 <br>

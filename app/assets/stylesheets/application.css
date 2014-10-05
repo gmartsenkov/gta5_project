@@ -9,5 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require world_flags/flags32
+ *= require world_flags/flags16
  *= require_tree .
  */
