@@ -4,16 +4,16 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <%= f.text_field :username, autofocus: true, type: "text", placeholder: "Username" %>
+  <%= f.text_field :username, autofocus: true, type: "text", placeholder: "Username", id: "username"%>
 
   <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %>
  <br/>
-    <%= f.password_field :password, autocomplete: "off", type: "password", placeholder: "Password" %>
+    <%= f.password_field :password, autocomplete: "off", type: "password", placeholder: "Password" , id: 'password' %>
 
   
-    <%= f.password_field :password_confirmation, autocomplete: "off", type: "password", placeholder: "Re-Type Password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", type: "password", placeholder: "Re-Type Password", id: 'password_confirm' %>
 
-  <%= f.submit "Log in" , class: "login login-submit", name: "login", value: "Register" %>
+  <%= f.submit "Log in" , class: "login login-submit", name: "login", value: "Register" , id: 'submit'%>
 <% end %>
 <div class="login-help">
 <%= render "devise/shared/links" %>

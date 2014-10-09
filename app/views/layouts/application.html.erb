@@ -8,7 +8,7 @@
 </head>
 <body>
 <%= render 'layouts/header'%>
-
+<div class="notify"><%=noty_personal_info_notify(current_user) %></div>
 <div class="content">
 <%= yield %>
 </div>

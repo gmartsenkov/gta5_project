@@ -1,0 +1,9 @@
+$(document).ready(function(){
+	$('.notify').hide();
+	if($('.notify').html().length == 0){
+		$('.notify').remove();
+	}
+	else{
+		$('.notify').slideDown('slow');
+	}
+});

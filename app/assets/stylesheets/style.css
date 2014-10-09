@@ -107,7 +107,6 @@ a:visited{
     border-left: 0 none;
 }
 #options>a {
-    background-image: url(triangle.png);
     background-position: 85% center;
     background-repeat: no-repeat;
     padding-right: 42px;
