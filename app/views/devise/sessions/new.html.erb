@@ -1,6 +1,6 @@
+<div class= "login_notice"></div><br>
 <div class="login-card">
     <h1>Log-in</h1><br>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= f.text_field :username, autofocus: true, type: "text", placeholder: "Username", id: "username" %>
     <%= f.password_field :password, autocomplete: "off", type: "password", placeholder: "Password" ,id: "password" %>
@@ -9,7 +9,7 @@
     <div class="remember_me"> <%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
   <br><br>
-  <%= f.submit "Log in" , class: "login login-submit", name: "login", value: "Log in" %>
+  <%= f.submit "Log in" , class: "login login-submit", name: "login", value: "Log in" ,id:'login' %>
 <% end %>
 <div class="login-help">
 <%= render "devise/shared/links" %>

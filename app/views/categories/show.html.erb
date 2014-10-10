@@ -1,18 +1,6 @@
-<p id="notice"><%= notice %></p>
-<%= link_to 'New Event', new_event_path(:category => @category) %>
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
 
-<p>
   <strong>Events:</strong><br>
-  <% @category.events.each do |event| %>
- Title: <%= link_to event.title , event_path(event)  %> <br>
- ID: <%= event.id%> <br>
- Category: <%= event.category.name %> <br> <br>
-  <% end %>
-</p>
+  <%= render 'event' %>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
