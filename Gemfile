@@ -42,6 +42,7 @@ gem 'ancestry'
 
 #Image upload gem
 gem 'carrierwave'
+gem 'cloudinary'
 gem 'rmagick', '2.13.2' , :require => 'RMagick'
 
 

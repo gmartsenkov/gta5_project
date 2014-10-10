@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: di6kxtgzn
+  api_key: '241882762529791'
+  api_secret: 3fGAFSXIK0i5pWYkEK47ndgnttk
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: di6kxtgzn
+  api_key: '241882762529791'
+  api_secret: 3fGAFSXIK0i5pWYkEK47ndgnttk
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: di6kxtgzn
+  api_key: '241882762529791'
+  api_secret: 3fGAFSXIK0i5pWYkEK47ndgnttk
+  enhance_image_tag: true
+  static_image_support: false
