@@ -1,0 +1,27 @@
+<h1>Listing default_avatars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Avatar default</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @default_avatars.each do |default_avatar| %>
+      <tr>
+        <td><%= default_avatar.avatar_default %></td>
+        <td><%= link_to 'Show', default_avatar %></td>
+        <td><%= link_to 'Edit', edit_default_avatar_path(default_avatar) %></td>
+        <td><%= link_to 'Destroy', default_avatar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Default avatar', new_default_avatar_path %>

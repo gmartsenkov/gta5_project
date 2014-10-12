@@ -1,6 +1,6 @@
 <ul class="nav">
     <li id="settings">
-        <a href="<%= control_center_path %>"><img src="/settings.png" , title="Dashboard" /></a>
+        <img src="/settings.png" , title="Dashboard" id="dashboard" />
     </li>
     <li>
         <li><%= link_to "Home" , home_index_path %></li>
@@ -20,7 +20,7 @@
         </ul>
     </li>
     <% else %>
-    <li><%= link_to('Login', new_user_session_path)  %></li>
+    <li><%= link_to('Login', new_user_session_path , id: 'login_button') %></li>
     <% end %>
     </div>
     <li id="search">

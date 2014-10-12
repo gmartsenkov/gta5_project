@@ -1,0 +1,21 @@
+<%= form_for @default_avatar, :html => {:multipart => true} do |f| %>
+  <% if @default_avatar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@default_avatar.errors.count, "error") %> prohibited this default_avatar from being saved:</h2>
+
+      <ul>
+      <% @default_avatar.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :avatar_default %><br>
+    <%= f.file_field :avatar_default %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

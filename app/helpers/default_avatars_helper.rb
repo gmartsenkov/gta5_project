@@ -1,0 +1,2 @@
+module DefaultAvatarsHelper
+end

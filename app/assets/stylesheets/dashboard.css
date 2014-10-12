@@ -1,0 +1,22 @@
+.dashboard_slide_menu{
+	width: 15%;
+	height: 100%;
+	padding-left: 10px;
+	left: 0;
+	right: 0;
+	background-color: #303030;
+	text-align: left;
+	position: fixed;
+	z-index: 99998;
+}
+
+#dashboard{
+	padding: 18px;
+    height: 24px;
+    font-size: 10px;
+    line-height: 24px;
+}
+
+.dashboard_hover{
+	background-color: #1f7f5c;
+}

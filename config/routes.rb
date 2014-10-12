@@ -1,5 +1,7 @@
 Gta5::Application.routes.draw do
 
+  resources :default_avatars
+
   resources :friendships
   resources :events
   resources :reports
