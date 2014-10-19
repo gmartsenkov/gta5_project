@@ -1,98 +1,110 @@
-.event_list{
-font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-	height: 40px;
-	margin-top: 5px;
-	margin-right: 10px;
-	padding-left: 15px;
-	padding-top: 20px;
-	padding-bottom: 0px;
-	width: 45%;
-	border: 1px solid #000000;
-	color: white;
-	background-color: #2E2E2E;
-	display: inline-block;
-}
-.event_content{
-	display: inline;
-	color: white;
-}
-.additional_info{
-	display: none;
-}
-.event_content h1{
-	color:white;
-	font-size: 15px;
+.events{
 	float: left;
-	display: inline-block;
-	padding-left: 1%;
-	margin-left: 10px;
-	background-image: url("/background_pattern.png");
-	border: 1px solid #000000;
-	width: 40%;
+	height: 1000px;
+	width: 75%;
+	margin-top: 20px;
 }
-.event_content:hover .hidden{
-	display: none;
-}
-.event_content:hover .additional_info{
-	
-	margin-top: 5px;
-	margin-left: 10px;
-	margin-bottom: 10px;
+.event-box{
+	background-color: white;
+	margin-left: 5%;
+	margin-bottom: 5%;
 	display: inline-block;
+	width: 42%;
 	height: 300px;
-	width: 50%;
-	vertical-align: top;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 0px solid #000000;
+}
+
+.event-window{
+	background-color: orange;
+	font-weight: bold;
+	color: white;
+	font-size: 110%;
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	border: 0px solid #000000;
+	line-height: 42px;
+	height: 15%;
+	padding-left: 5%;
+	-webkit-font-smoothing: antialiased !important;
+}
+.event-title{
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 135%;
+	margin-left: 5%;
+	margin-top: 5%;
+	color: #696969;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+.event-description{
+	vertical-align:top;
+	height: 150px;
+	display: inline-block;
+	width: 80%;
+	margin-top: 5%;
+	margin-left: 9%;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 90%;
+}
+.bottom-window{
+	display: inline-block;
+	width: 100%;
+	height: 15%;
+	border-top: 1px solid #CACACA;
+	background-color: #FCFCFC;
+	border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	border-bottom: 0px solid #000000;
+}
+.bottom-container{
+	padding-left: 5%;
+	padding-top: 3%;
+}
+
+.bottom-container a:visited, .bottom-container a:link{
+	-webkit-font-smoothing: antialiased !important;
+	font-size: 110%;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	color: #696969;
+}
+.bottom-container a:hover{
+	 transition: all 0.15s;
+	color: #545454;
+	text-decoration: none;	
+}
+
+.btn {
+  -webkit-font-smoothing: antialiased !important;
+  display: inline;
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px solid #3ae095;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  color: #ffffff;
+  font-size: 16px;
+  background: #3ae095;
+  padding: 7px 12px 7px 12px;
+  text-decoration: none;
+}
+
+.btn a:hover {
+  color: white;
+  background-color: #3ad18b;
+  text-decoration: none;
+}
+
+.view-button{
+	display: inline-block;
 	float: right;
+	padding-right: 10px;
 }
-.event_date{
-	float:right;
-	display: inline;
-}
-.image_holder{
-	display: inline;
-	float: left;
-}
-.image_event{
-	display: inline;
-	height: 300px;
-	width: 400px;
-	border-radius: 10px 10px 10px 10px;
-    -moz-border-radius: 10px 10px 10px 10px;
-    -webkit-border-radius: 10px 10px 10px 10px;
-    border: 0px solid #000000;
-}
-.event_description{
-	border-radius: 10px 10px 10px 10px;
-   -moz-border-radius: 10px 10px 10px 10px;
-   -webkit-border-radius: 10px 10px 10px 10px;
-    border: 0px solid #000000;
-	display: inline-block;
-	width: 45%;
-	height: 35%;
-	float: left;
-	margin-left: 10px;
-	border: 1px solid #000000;
-	padding-left: 5px;
-	padding-top: 5px;
-	padding-right: 5px;
-	padding-top: 2px;
-	background-image: url("/background_pattern.png");
-}
-.event_owner{
-	border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
-border: 0px solid #000000;
-	border-left-style: none;
-	line-height: 160%;
-	border: 1px solid #000000;
-	display: inline;
-	float:left;
-	margin-top: 5px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 7px; 
-	width: 97%;
-	height: 100%;
-	background-image: url("/background_pattern.png");
+.players{
+	padding-right: 5%;
+	float: right;
 }

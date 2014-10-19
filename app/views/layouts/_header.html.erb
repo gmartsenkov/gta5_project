@@ -1,14 +1,15 @@
+
+    <div class="main-logo">
+        <img src="/xbox-controller.png" width="35" height="35"></img>
+    </div>     
 <ul class="nav">
-    <li id="settings">
-        <img src="/settings.png" , title="Dashboard" id="dashboard" />
-    </li>
     <li>
         <li><%= link_to "Home" , home_index_path %></li>
         <li><%= link_to "Categories" , categories_path %></li>
         <li><%= link_to "Events" , events_path %></li>
     </li>
-         
-    
+
+
     <div id="control">
      <% if user_signed_in? %> 
     <li id="options">
@@ -20,13 +21,9 @@
         </ul>
     </li>
     <% else %>
+     <li id="options">
     <li><%= link_to('Login', new_user_session_path , id: 'login_button') %></li>
+    </li>
     <% end %>
     </div>
-    <li id="search">
-        <form action="" method="get">
-            <input type="text" name="search_text" id="search_text" placeholder="Search"/>
-            <input type="button" name="search_button" id="search_button"></a>
-        </form>
-    </li>
-</ul><br><br><br>
+</ul>

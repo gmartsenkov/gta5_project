@@ -1,35 +1,86 @@
 #category_container{
-background-color: #232323;
-text-align: center;
-float: left;
-width: 400px;
-height: 300px;
-border: 1px solid #000000;
-margin: 0 15px 15px 0;
-padding: 5px;
-background-repeat: no-repeat;
-
--webkit-transition: all 1s ease;
-     -moz-transition: all 1s ease;
-       -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-          transition: all 1s ease;
-
-          z-index: -1;
-    color:white;
-    font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
-    font-size: 18px;
-    text-shadow: 1px 3px 0 rgba(0,0,0,0.2);
-
-    border-radius: 2px 2px 2px 2px;
-	-moz-border-radius: 2px 2px 2px 2px;
-	-webkit-border-radius: 2px 2px 2px 2px;
-	border: 1px solid #000000;
+  top: 78px;
+  right: 10px;
+  position: fixed;
 }
-#category_container:hover{
-	  -webkit-filter: grayscale(85%);
-	  -moz-filter: grayscale(85%);
-		filter: grayscale(85%);
-	  z-index: -1;
+.category-list{
+  background-color: #F8F8F8;
+  list-style-type: none;
+  width: 300px;
+  border-radius: 9px 9px 9px 9px;
+-moz-border-radius: 9px 9px 9px 9px;
+-webkit-border-radius: 9px 9px 9px 9px;
+border: 0px solid #D5D5D5;
 }
-.clearboth { clear: both; }
+
+.category-list li{
+  color: #7A7A7A;
+  font-size: 105%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  line-height: 30px;
+  border-bottom: 1px solid #D5D5D5;
+}
+
+.category-list a:hover{
+  text-decoration: none;
+}
+
+.category-list li:before {
+      content:'\2022';
+      float: right;
+      display: block;
+      position: relative;
+      max-width: 0px;
+      max-height: 0px;
+      left: -15px;
+      top: -0px;
+      color: blue;
+      font-size: 23px;
+}
+.category-list li:hover{
+  background-color: white;
+  transition: all 0.15s;
+}
+#list-selector{
+  background-color: #FCFCFC;
+  width: 100%;
+  display: block;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #D5D5D5;
+}
+#list-selector a{
+  color: #7A7A7A;
+}
+
+#list-selector a:hover{
+  color: #3D3D3D;
+}
+#left{
+  padding-left: 40px;
+
+}
+#right{
+  border-left: 1px solid #D5D5D5;
+  padding-left: 42px;
+  padding-right: 45px;
+  float:right;
+}
+.search-list{
+  background-color: #848484;
+  display: inline;
+}
+
+.search-list input[type="text"]{
+  color: white;
+  background-color: #A9A9A9;
+  border: none;
+  height: 40px;
+  width: 96%;
+}
+.search-list input[type="text"]::-webkit-input-placeholder{
+  color: white;
+ 
+}
