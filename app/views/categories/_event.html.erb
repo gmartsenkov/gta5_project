@@ -1,39 +1,54 @@
-<h1>Listing events</h1>
-    <% @category.events.each do |event| %>
-     <div class="event_content">
-      <div class="event_list">
-        <% event.owner %>
-        <% event.console %>
-        <% event.players %>
-        <% event.category_id %>
-        <%= event.title %>
-        <% event.description %>
-
-        <div class="event_date"><%= event.participants.count%>/<%= event.players %> 
-        <%= date_in_words(event.start_time) %></div>
-        <%= link_to 'Show', event %>
-        <%= link_to 'Edit', edit_event_path(event) %>
-        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
-          <div class="additional_info">
-
-          <div class="image_holder">
-          <div class="image_event", style="background-image: url(<%=event.image_url%>);"> <image src="<%=event.image_url%>" width="300" heigth="300"></image></div> <br>
-          <div class="event_owner"> Host: <%= event.user.username %>
-          <br>
-          Nationality: <%= event.user.country %><br>
-          PS3: <%= event.user.ps3 %><br>
-          XBOX360: <%= event.user.xbox360 %>
-          </div>
-          </div>
-          <h1><%= event.title %></h1><br><br><br>
-          <div class="event_description"><%= event.description %></div><br>
-          
-       
-          </div>
-      </div><br>
-      <tr>
+<div id="category_container">
+<ul class="category-list" >
+  
+  <form class="search-list">
+  <input type="text" name="search" placeholder="Search">
+  </form>
+  
+  <div id="list-selector">
+  <a href=""><div id="left">Categories<a><div id="right">Countries</div><a></div><a>
+  </div>
+   <% @all_categories.each do |category| %>
+   <style>
+   .c_list_<%= category.id %>:before{
+      content:'\2022';
+      float: right;
+      display: block;
+      position: relative;
+      max-width: 3px;
+      max-height: 0px;
+      left: -15px;
+      top: -0px;
+      color: <%= category.color %>;
+      font-size: 33px;
+  }
+   </style>
+      <% if current_page?(category_path(category.id)) %>
+      <a href="<%= category_path(category.id) %>"><li class="c_list_<%= category.id %>" style="background-color: white"><%= category.name %></li></a>
+      <%else%>
+      <a href="<%= category_path(category.id) %>"><li class="c_list_<%= category.id %>"><%= category.name %></li></a>
+      <% end %>
     <% end %>
+    </ul> 
+</div>
 
-<br>
+<div class="events">
+  <% @category.events.each do |event| %>
+  <div class="event-box">
+    <div class="event-window" style="background-color: <%= event.category.color %>"><%= event.category.name if event.category %>
+    <div class="players"> <%= date_in_words(event.start_time) %> | <%= event.participants.count%>/<%= event.players %></div>
+    </div>
+    <div class="event-title"><%= event.title %></div>
+    <div class="event-description"><%= event.description %></div>
+    <div class="bottom-window">
+    <div class="bottom-container">
+    <%=link_to event.user.username.capitalize, profile_id_path(event.user.id) %>
+    <div class="view-button">
+    <a href="<%= event_path(event.id) %>" class="btn">View</a>
+    </div>
+    </div>
+    </div>
+  </div>
+  <%end%>
+</div>
 

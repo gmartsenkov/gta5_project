@@ -42,7 +42,7 @@
 }
 
 .event-description{
-	vertical-align:top;
+	word-wrap: break-word;
 	height: 150px;
 	display: inline-block;
 	width: 80%;

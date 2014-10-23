@@ -15,6 +15,9 @@
   <div class="field">
     <%= f.label :console %><br>
    <%= f.select :console, options_for_select(%w[PS3 Xbox360]) %>
+   <br>
+   <%= f.label :category_id, "Category" %><br>
+   <%= f.select :category_id , options_for_select(Category.find(:all).collect{ |f| [f.name, f.id] }) %>
   </div>
   <div class="field">
     <%= f.label :players %><br>

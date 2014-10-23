@@ -1,12 +1,12 @@
 #category_container{
-  top: 78px;
-  right: 10px;
+  top: 85px;
+  right: 55px;
   position: fixed;
 }
 .category-list{
   background-color: #F8F8F8;
   list-style-type: none;
-  width: 300px;
+  width: 102%;
   border-radius: 9px 9px 9px 9px;
 -moz-border-radius: 9px 9px 9px 9px;
 -webkit-border-radius: 9px 9px 9px 9px;
@@ -27,18 +27,6 @@ border: 0px solid #D5D5D5;
   text-decoration: none;
 }
 
-.category-list li:before {
-      content:'\2022';
-      float: right;
-      display: block;
-      position: relative;
-      max-width: 0px;
-      max-height: 0px;
-      left: -15px;
-      top: -0px;
-      color: blue;
-      font-size: 23px;
-}
 .category-list li:hover{
   background-color: white;
   transition: all 0.15s;
@@ -58,6 +46,7 @@ border: 0px solid #D5D5D5;
 #list-selector a:hover{
   color: #3D3D3D;
 }
+
 #left{
   padding-left: 40px;
 
@@ -82,5 +71,8 @@ border: 0px solid #D5D5D5;
 }
 .search-list input[type="text"]::-webkit-input-placeholder{
   color: white;
- 
+}
+
+.current{
+  color: red;
 }

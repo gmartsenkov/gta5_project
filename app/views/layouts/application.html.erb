@@ -9,8 +9,10 @@
 <body>
 <%= render 'layouts/header'%>
 <div class="notify"><%=noty_personal_info_notify(current_user) %></div>
-<% if current_page?(categories_path) %>
+
+<% if current_page?(categories_path) || current_page?(category_path(params[:id])) %>
 <div class="magic-border"></div>
+
 <% end %>
 <div class="content">
 <%= yield %>

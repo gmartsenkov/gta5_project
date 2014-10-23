@@ -9,15 +9,30 @@
 	<a href=""><div id="left">Categories<a><div id="right">Countries</div><a></div><a>
 	</div>
    <% @categories.each do |category| %>
-      <a href="<%= category_path(category.id) %>"><li id="c_list[<%= category.id %>]"><%= category.name %></li></a>
+   <style>
+   .c_list_<%= category.id %>:before{
+   	  content:'\2022';
+      float: right;
+      display: block;
+      position: relative;
+      max-width: 3px;
+      max-height: 0px;
+      left: -15px;
+      top: -0px;
+    	color: <%= category.color %>;
+      font-size: 33px;
+	}
+   </style>
+      <a href="<%= category_path(category.id) %>"><li class="c_list_<%= category.id %>"><%= category.name %></li></a>
     <% end %>
     </ul> 
 </div>
+
 <div class="events">
 	<% @events.each do |event| %>
 	<div class="event-box">
-		<div class="event-window"><%= event.category.name if event.category %>
-		<div class="players"><%= event.participants.count%>/<%= event.players %></div>
+		<div class="event-window" style="background-color: <%= event.category.color %>"><%= event.category.name if event.category %>
+		<div class="players"> <%= date_in_words(event.start_time) %> | <%= event.participants.count%>/<%= event.players %></div>
 		</div>
 		<div class="event-title"><%= event.title %></div>
 		<div class="event-description"><%= event.description %></div>
