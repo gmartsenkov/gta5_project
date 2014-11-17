@@ -1,5 +1,3 @@
-<div class="events">
-  <% @categories.events.each do |event| %>
   <div class="event-box">
     <div class="event-window" style="background-color: <%= event.category.color %>"><%= event.category.name if event.category %>
     <div class="players"> <%= date_in_words(event.start_time) %> | <%= event.participants.count%>/<%= event.players %></div>
@@ -15,5 +13,3 @@
     </div>
     </div>
   </div>
-  <%end%>
-</div>

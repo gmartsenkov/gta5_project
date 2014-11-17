@@ -10,7 +10,7 @@
 <%= render 'layouts/header'%>
 <div class="notify"><%=noty_personal_info_notify(current_user) %></div>
 
-<% if current_page?(categories_path) || current_page?(category_path(params[:id])) %>
+<% if current_page?(events_path)  %>
 <div class="magic-border"></div>
 
 <% end %>

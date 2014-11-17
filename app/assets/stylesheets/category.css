@@ -76,3 +76,20 @@ border: 0px solid #D5D5D5;
 .current{
   color: red;
 }
+
+
+.all_cat:before{
+    content:'\2022';
+  float: right;
+  display: block;
+  position: relative;
+  max-width: 3px;
+  max-height: 0px;
+  left: -15px;
+  top: -0px;
+  color: gray;
+  font-size: 33px;
+}
+.all_cat a{
+  color: #7A7A7A;
+}

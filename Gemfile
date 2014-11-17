@@ -35,7 +35,7 @@ gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 # Pagination
-gem 'kaminari'
+gem 'will_paginate'
 
 #Tree structure using ancestry
 gem 'ancestry'

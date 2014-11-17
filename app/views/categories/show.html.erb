@@ -1,1 +1,35 @@
-  <%= render 'event' %>
+<div id="category_container">
+<ul class="category-list" >
+
+  <form class="search-list">
+  <input type="text" name="search" placeholder="Search">
+  </form>
+
+  <div id="list-selector">
+  <a href=""><div id="left">Categories<a><div id="right">Countries</div><a></div><a>
+  </div>
+  <a href="<%= categories_path %>"><li class="all_cat">All</li></a>
+   <% @categories.each do |category| %>
+   <style>
+   .c_list_<%= category.id %>:before{
+      content:'\2022';
+      float: right;
+      display: block;
+      position: relative;
+      max-width: 3px;
+      max-height: 0px;
+      left: -15px;
+      top: -0px;
+      color: <%= category.color %>;
+      font-size: 33px;
+  }
+   </style>
+      <% if current_page?(category_path(category.id)) %>
+      <a href="<%= category_path(category.id) %>"><li class="c_list_<%= category.id %>" style="background-color: white"><%= category.name %></li></a>
+      <%else%>
+      <a href="<%= category_path(category.id) %>"><li class="c_list_<%= category.id %>"><%= category.name %></li></a>
+      <% end %>
+    <% end %>
+    </ul>
+</div>
+<%= render 'event' %>

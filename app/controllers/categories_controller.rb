@@ -5,13 +5,13 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
-    @events = Event.all
+    @events = Event.order(:created_at).page(params[:page])
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @all_categories = Category.all
+    @categories = Category.all
   end
 
   # GET /categories/new

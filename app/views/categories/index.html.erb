@@ -1,13 +1,14 @@
 <div id="category_container">
 <ul class="category-list" >
-	
+
 	<form class="search-list">
   <input type="text" name="search" placeholder="Search">
 	</form>
-	
+
 	<div id="list-selector">
 	<a href=""><div id="left">Categories<a><div id="right">Countries</div><a></div><a>
 	</div>
+	<a href="<%= categories_path %>"><li class="all_cat">All</li></a>
    <% @categories.each do |category| %>
    <style>
    .c_list_<%= category.id %>:before{
@@ -25,26 +26,7 @@
    </style>
       <a href="<%= category_path(category.id) %>"><li class="c_list_<%= category.id %>"><%= category.name %></li></a>
     <% end %>
-    </ul> 
+    </ul>
 </div>
 
-<div class="events">
-	<% @events.each do |event| %>
-	<div class="event-box">
-		<div class="event-window" style="background-color: <%= event.category.color %>"><%= event.category.name if event.category %>
-		<div class="players"> <%= date_in_words(event.start_time) %> | <%= event.participants.count%>/<%= event.players %></div>
-		</div>
-		<div class="event-title"><%= event.title %></div>
-		<div class="event-description"><%= event.description %></div>
-		<div class="bottom-window">
-		<div class="bottom-container">
-		<%=link_to event.user.username.capitalize, profile_id_path(event.user.id) %>
-		<div class="view-button">
-		<a href="<%= event_path(event.id) %>" class="btn">View</a>
-		</div>
-		</div>
-		</div>
-	</div>
-	<%end%>
-</div>
-
+<%= render 'event' %>

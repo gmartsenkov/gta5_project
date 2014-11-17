@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
- 
+
  body{
  	margin:0px;
     width: 100%;
@@ -58,7 +58,7 @@
     color: #007ACC;
     background-color: white;
 }
- 
+
 #settings a {
     padding: 18px;
     height: 24px;
@@ -136,7 +136,7 @@
     float: none;
 }
 .subnav li a {
-   
+
 }
 #options:hover .subnav {
     visibility: visible;
@@ -156,7 +156,7 @@
     height: 10px;
     width: 65%;
     margin-left: 6.1%;
-    
+
 }
 .magic-border-magnificent{
     transition: all 0.5s ease;

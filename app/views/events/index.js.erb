@@ -1,0 +1,6 @@
+$('#events_container').append('<%= j render(@events) %>');
+<% if (@events.current_page < @events.total_pages) %>
+  $('.pagination').replaceWith('<%= j will_paginate(@events) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>

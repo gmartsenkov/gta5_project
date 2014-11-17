@@ -1,40 +1,39 @@
-<h1>Listing events</h1>
-    <% @events.each do |event| %>
-     <div class="event_content">
-      <div class="event_list">
-        <% event.owner %>
-        <% event.console %>
-        <% event.players %>
-        <% event.category_id %>
-        <%= event.title %>
-        <% event.description %>
+<div id="category_container">
+<ul class="category-list" >
 
-        <div class="event_date"><%= event.participants.count%>/<%= event.players %> 
-        <%= date_in_words(event.start_time) %></div>
-        <%= link_to 'Show', event %>
-        <%= link_to 'Edit', edit_event_path(event) %>
-        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
-          <div class="additional_info">
+  <form class="search-list">
+  <input type="text" name="search" placeholder="Search">
+  </form>
 
-          <div class="image_holder">
-          <div class="image_event", style="background-image: url(<%=event.image_url%>);"> <image src="<%=event.image_url%>" width="300" heigth="300"></image></div> <br>
-          <div class="event_owner"> Host: <%= event.user.username %>
-          <br>
-          Nationality: <%= event.user.country %><br>
-          PS3: <%= event.user.ps3 %><br>
-          XBOX360: <%= event.user.xbox360 %>
-          </div>
-          </div>
-          <h1><%= event.title %></h1><br><br><br>
-          <div class="event_description"><%= event.description %></div><br>
-          
-       
-          </div>
-      </div><br>
-      <tr>
+  <div id="list-selector">
+  <a href=""><div id="left">Categories<a><div id="right">Countries</div><a></div><a>
+  </div>
+  <a href="<%= events_path %>"><li class="all_cat">All</li></a>
+   <% @categories.each do |category| %>
+   <style>
+   .c_list_<%= category.id %>:before{
+      content:'\2022';
+      float: right;
+      display: block;
+      position: relative;
+      max-width: 3px;
+      max-height: 0px;
+      left: -15px;
+      top: -0px;
+      color: <%= category.color %>;
+      font-size: 33px;
+  }
+   </style>
+      <% if current_page?(category_path(category.id)) %>
+      <a href="<%=events_path(:category_id => category.id) %>"><li class="c_list_<%= category.id %>" style="background-color: white"><%= category.name %></li></a>
+      <%else%>
+      <a href="<%= events_path(:category_id => category.id) %>"><li class="c_list_<%= category.id %>"><%= category.name %></li></a>
+      <% end %>
     <% end %>
+    </ul>
+</div>
+<div class="events" id="events_container">
+<%= render @events %>
+</div>
 
-<br>
-
-<%= link_to 'New Event', new_event_path %>
+<%= will_paginate @events %>
