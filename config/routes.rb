@@ -13,7 +13,7 @@ Gta5::Application.routes.draw do
   get "profile" , to: 'profile#index' , as: 'profile'
   get '/participate/:id', to: 'events#participate', as: 'participate'
   get "home/index"
-  get "api" , to: 'home#api' , as: 'api'
+  get "api/justpark/:q" , to: 'home#api' , as: 'api'
 
   devise_scope :user do
   get "/profile/settings" , to: "devise/registrations#edit"
