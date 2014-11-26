@@ -10,4 +10,11 @@ class HomeController < ApplicationController
 
     render json: @data, :callback => params['callback']
   end
+
+  def assignment
+    @search = params[:city]
+    if @search.nil?
+      @search = "wembley"
+    end
+  end
 end

@@ -14,7 +14,7 @@ Gta5::Application.routes.draw do
   get '/participate/:id', to: 'events#participate', as: 'participate'
   get "home/index"
   get "api/justpark/:q" , to: 'home#api' , as: 'api'
-
+  get "assignment/justpark/:city" , to: 'home#assignment' , as: 'assignement'
   devise_scope :user do
   get "/profile/settings" , to: "devise/registrations#edit"
   end
