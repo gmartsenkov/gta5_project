@@ -7,17 +7,18 @@ Gta5::Application.routes.draw do
   resources :reports
   resources :categories
   devise_for :users , :controllers => {:registrations => "registrations"}
-  
-  get "dashboard" , to: 'events#control_panel' , as: 'control_center'  
+
+  get "dashboard" , to: 'events#control_panel' , as: 'control_center'
   get "u/:id" , to: 'profile#profile_by_id' , as: 'profile_id'
   get "profile" , to: 'profile#index' , as: 'profile'
   get '/participate/:id', to: 'events#participate', as: 'participate'
   get "home/index"
- 
+  get "api" , to: 'home#api' , as: 'api'
+
   devise_scope :user do
   get "/profile/settings" , to: "devise/registrations#edit"
   end
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -58,7 +59,7 @@ Gta5::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
