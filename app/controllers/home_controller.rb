@@ -14,11 +14,11 @@
     else
       pages = 3
     end
-    a = 0
+
     for i in 1..pages
-    a += 1
-      resp = Net::HTTP.get_response(URI.parse('https://api.parkatmyhouse.com/1.1/location/?q='+ @q + '?page=' + a.to_s))
-      @data[a] = resp.body
+
+      resp = Net::HTTP.get_response(URI.parse('https://api.parkatmyhouse.com/1.1/location/?q='+ @q + '?page=' + i.to_s))
+      @data[i.to_i] = resp.body
     end
 
     render json: @data, :callback => params['callback']
