@@ -16,8 +16,7 @@
     end
 
     for i in 1..pages
-
-      resp = Net::HTTP.get_response(URI.parse('https://api.parkatmyhouse.com/1.1/location/?q='+ @q + '?page=' + i.to_s))
+      resp = Net::HTTP.get_response(URI.parse('https://api.parkatmyhouse.com/1.1/location/?q='+ @q + '&page=' + i.to_s))
       @data[i.to_i] = resp.body
     end
 
