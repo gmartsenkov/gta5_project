@@ -19,7 +19,7 @@
 <script>
 $('.white-popup').hide();
 var myjson;
-var apiurl = "https://lit-beyond-9422.herokuapp.com/api/justpark/" + '<%= j @search.to_s %>';
+var apiurl = '<%= j request.base_url.to_s %>' + "/api/justpark/" + '<%= j @search.to_s %>';
 $.ajax({
   url: apiurl,
   dataType: 'jsonp',
@@ -34,18 +34,11 @@ $.ajax({
   }
 });
 
-function plural(number,message){
-  if(number != 1){
-    return number + ' ' + message;
-  }
-  else{
-    message = message.substring(0, message.length - 1);
-    return number + ' ' + message;
-  }
-}
-
 function initialize() {
-  var myLatlng = new google.maps.LatLng(myjson.coords.lat,myjson.coords.lng);
+  var obj = jQuery.parseJSON(myjson[0]);
+  console.log(obj);
+
+  var myLatlng = new google.maps.LatLng(obj.coords.lat,obj.coords.lng);
   var bounds = new google.maps.LatLngBounds();
   var mapOptions = {
     zoom: 10,
@@ -54,61 +47,75 @@ function initialize() {
 
   var map = new google.maps.Map(document.getElementById('map-canvas'),
   mapOptions);
-  for(i = 0; i < myjson.data.length ; i++){
+  var ba = 0
+  for(page = 0 ; myjson.length ; page++){
+    var current_page = jQuery.parseJSON(myjson[page]);
+    for(i = 0; i < current_page.data.length ; i++){
 
-    var position = new google.maps.LatLng(myjson.data[i].coords.lat, myjson.data[i].coords.lng );
-    bounds.extend(position);
-    marker = new google.maps.Marker({
-      position: position,
-      map: map
-    });
+      console.log(ba+=1)
+      var position = new google.maps.LatLng(current_page.data[i].coords.lat, current_page.data[i].coords.lng );
+      bounds.extend(position);
+      marker = new google.maps.Marker({
+        position: position,
+        map: map
+      });
 
-
-    (function(z){
-      google.maps.event.addListener(marker, "click", function() {
-        $('.facilities').empty();
-        $('.title').html(myjson.data[z].title + '<div class="price">' + myjson.data[z].display_price.formatted_price + ' per ' + myjson.data[z].display_price.period + '</div>');
-        $('.rating').html(myjson.data[z].feedback.rating + '/5 based on ' + plural(myjson.data[z].feedback.count,'reviews'));
-        $('.photo').html('<img src="' + myjson.data[z].photos.google_streetview + '">');
-        $('.category').html('<a>Category: </a>' + myjson.data[z].category + ' (' + plural(myjson.data[z].spaces_to_rent,'spaces') + ' )');
-
-        if(myjson.data[z].facilities.length != 0){
-          $('.facilities').append('<a>Facilities: </a>');
-          for(i=0;i < myjson.data[z].facilities.length; i++){
-
-            if(i != myjson.data[z].facilities.length - 1){
-              $('.facilities').append(myjson.data[z].facilities[i] + ', ');}
-              else{ $('.facilities').append(myjson.data[z].facilities[i]); }
-            }}
-
-            $.magnificPopup.open({
-              items: {
-                src: '.white-popup',
-                type: 'inline'
-              }
-            });
-            $('.white-popup').hide();
-            $('.white-popup').show("slide", { direction: "left" }, 400);
-          });
-        })(i);
+      function plural(number,message){
+        if(number != 1){
+          return number + ' ' + message;
+        }
+        else{
+          message = message.substring(0, message.length - 1);
+          return number + ' ' + message;
+        }
       }
 
-      map.fitBounds(bounds);
-      var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-        this.setZoom(16);
-        google.maps.event.removeListener(boundsListener);
-      });
-    }
+      (function(a){(function(z){
+        google.maps.event.addListener(marker, "click", function() {
+          current_page[a] = jQuery.parseJSON(myjson[a]);
 
-    function loadScript() {
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
-      'callback=initialize';
-      document.body.appendChild(script);
-    }
+          $('.facilities').empty();
+          $('.title').html(current_page[a].data[z].title + '<div class="price">' + current_page[a].data[z].display_price.formatted_price + ' per ' + current_page[a].data[z].display_price.period + '</div>');
+          $('.rating').html(current_page[a].data[z].feedback.rating + '/5 based on ' + plural(current_page[a].data[z].feedback.count,'reviews'));
+          $('.photo').html('<img src="' + current_page[a].data[z].photos.google_streetview + '">');
+          $('.category').html('<a>Category: </a>' + current_page[a].data[z].category + ' (' + plural(current_page[a].data[z].spaces_to_rent,'spaces') + ' )');
 
-    window.onload = loadScript;
+          if(current_page[a].data[z].facilities.length != 0){
+            $('.facilities').append('<a>Facilities: </a>');
+            for(i=0;i < current_page[a].data[z].facilities.length; i++){
+
+              if(i != current_page[a].data[z].facilities.length - 1){
+                $('.facilities').append(current_page[a].data[z].facilities[i] + ', ');}
+                else{ $('.facilities').append(current_page[a].data[z].facilities[i]); }
+              }}
+              $.magnificPopup.open({
+                items: {
+                  src: '.white-popup',
+                  type: 'inline'
+                }
+              });
+              $('.white-popup').hide();
+              $('.white-popup').show("slide", { direction: "left" }, 400);
+            });
+          })(i);})(page);
+        }}
+
+        map.fitBounds(bounds);
+        var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+          this.setZoom(16);
+          google.maps.event.removeListener(boundsListener);
+        });
+      }
+
+      function loadScript() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+        'callback=initialize';
+        document.body.appendChild(script);
+      }
+
+      window.onload = loadScript;
 
     $('#search').submit(function(e){
       e.preventDefault();
